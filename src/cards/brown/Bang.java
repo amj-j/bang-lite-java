@@ -10,6 +10,7 @@ public class Bang extends BrownCard {
 
     @Override
     public void play(Player owner) {
-
+        Player shot = getPlayer(owner, "Who do you shoot on?");
+        
     }
 }

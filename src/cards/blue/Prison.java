@@ -10,6 +10,11 @@ public class Prison extends BlueCard {
 
     @Override
     public void play(Player owner) {
+        
+    }
 
+    @Override
+    public void takeEffect(Player owner) {
+        
     }
 }

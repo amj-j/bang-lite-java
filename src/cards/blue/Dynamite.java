@@ -12,4 +12,9 @@ public class Dynamite extends BlueCard {
     public void play(Player owner) {
 
     }
+
+    @Override
+    public void takeEffect(Player owner) {
+        
+    }
 }

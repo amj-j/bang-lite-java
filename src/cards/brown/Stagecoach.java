@@ -3,6 +3,7 @@ package cards.brown;
 import main.*;
 
 public class Stagecoach extends BrownCard {
+    private static final int CARDS_NUM = 2;
     
     public Stagecoach(Board board) {
         super(board);
@@ -10,6 +11,9 @@ public class Stagecoach extends BrownCard {
 
     @Override
     public void play(Player owner) {
-
+        for (int i = 0; i < CARDS_NUM; i++) {
+            super.board.dealCard(owner);
+        }
+        System.out.println("You drew " + CARDS_NUM + " cards.");
     }
 }

@@ -32,9 +32,19 @@ public class Player {
         this.lives++;
     }
 
-    public void addCard(Card card) {
+    public void addCardToHand(Card card) {
         hand.add(card);
     }
 
-    
+    public void addCardToTable(BlueCard card) {
+        table.add(card);
+    }
+
+    public void takeCardFromHand(Card card) {
+        hand.remove(card);
+    }
+
+    public void takeCardFromTable(BlueCard card) {
+        table.remove(card);
+    }
 }

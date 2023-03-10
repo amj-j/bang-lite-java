@@ -10,6 +10,6 @@ public class CatBalou extends BrownCard {
 
     @Override
     public void play(Player owner) {
-
+        
     }
 }

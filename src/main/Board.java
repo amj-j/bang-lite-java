@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import utils.KeyboardInput;
 import utils.Constants;
 import cards.Card;
@@ -41,12 +43,32 @@ public class Board {
     }
 
     private void dealCards() {
-        Card card;
         for (Player player : players) {
             for (int i = 0; i < Constants.START_CARDS; i++) {
-                card = (Card)deck.takeFromTop();
-                player.addCard(card);
+                dealCard(player);
             }
         }
+    }
+
+    public void dealCard(Player player) {
+        Card card = (Card)deck.takeFromTop();
+        player.addCardToHand(card);
+    }
+
+    public HashMap<Integer, Player> printOpponents(Player currPlayer) {
+        int index = players.indexOf(currPlayer);
+        HashMap<Integer, Player> opponents = new HashMap<>();
+        int j = 1;
+        for (int i = index+1; i < players.size(); i++) {
+            System.out.println(j + ". " + players.get(i).getName());
+            opponents.put(j, players.get(i));
+            j++;
+        }
+        for (int i = 0; i < index; i++) {
+            System.out.println(j + ". " + players.get(i).getName());
+            opponents.put(j, players.get(i));
+            j++;
+        }
+        return opponents;
     }
 }
