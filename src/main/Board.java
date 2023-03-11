@@ -10,9 +10,9 @@ import cards.blue.*;
 import cards.brown.*;
 
 public class Board {
-    Deck deck = new Deck();
-    ArrayList<Player> players = new ArrayList<>();
-    ArrayList<Player> lostPlayers = new ArrayList<>();
+    public Deck deck = new Deck();
+    private ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Player> lostPlayers = new ArrayList<>();
 
     public Board(int playersNum) {
         initPlayers(playersNum);

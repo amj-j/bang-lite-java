@@ -47,4 +47,22 @@ public class Player {
     public void takeCardFromTable(BlueCard card) {
         table.remove(card);
     }
+
+    public <T extends Card> Card getCardOnHand(Class<T> card) {
+        for (int i = 0; i < hand.size(); i++) {
+            if (card.isInstance(hand.get(i))) {
+                return hand.get(i);
+            }
+        }
+        return null;
+    }
+
+    public <T extends Card> Card getCardOnTable(Class<T> card) {
+        for (int i = 0; i < table.size(); i++) {
+            if (card.isInstance(table.get(i))) {
+                return hand.get(i);
+            }
+        }
+        return null;
+    }
 }
