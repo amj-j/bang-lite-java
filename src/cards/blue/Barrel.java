@@ -9,6 +9,16 @@ public class Barrel extends BlueCard {
     }
 
     @Override
+    public boolean canPlay(Player owner) {
+        if (owner.getCardOnTable(Barrel.class) == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
     public void play(Player owner) {
 
     }
