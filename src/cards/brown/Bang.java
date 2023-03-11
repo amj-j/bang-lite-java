@@ -11,16 +11,16 @@ public class Bang extends BrownCard {
 
     @Override
     public void play(Player owner) {
-        Player shotPlayer = getPlayer(owner, "Who do you shoot on?");
-        Card missedCard = shotPlayer.getCardOnHand(Missed.class);
+        Player chosenPlayer = getPlayer(owner, "Who do you shoot on?");
+        Card missedCard = chosenPlayer.getCardOnHand(Missed.class);
         if (missedCard == null) {
-            shotPlayer.takeLife();
-            System.out.println(shotPlayer.getName() + " loses a life!");
+            chosenPlayer.takeLife();
+            System.out.println(chosenPlayer.getName() + " loses a life!");
         }
         else {
-            missedCard.play(shotPlayer);
-            shotPlayer.takeCardFromHand(missedCard);
-            super.board.deck.addToBottom(missedCard);
+            missedCard.play(chosenPlayer);
+            chosenPlayer.takeCardFromHand(missedCard);
+            super.board.getDeck().addToBottom(missedCard);
         }
     }
 }

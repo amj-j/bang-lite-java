@@ -10,7 +10,7 @@ import cards.blue.*;
 import cards.brown.*;
 
 public class Board {
-    public Deck deck = new Deck();
+    private Deck deck = new Deck();
     private ArrayList<Player> players = new ArrayList<>();
     private ArrayList<Player> lostPlayers = new ArrayList<>();
 
@@ -48,6 +48,18 @@ public class Board {
                 dealCard(player);
             }
         }
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return this.players;
+    }
+
+    public ArrayList<Player> getLostPlayers() {
+        return this.lostPlayers;
+    }
+
+    public Deck getDeck() {
+        return this.deck;
     }
 
     public void dealCard(Player player) {

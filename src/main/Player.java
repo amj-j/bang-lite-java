@@ -44,8 +44,16 @@ public class Player {
         hand.remove(card);
     }
 
+    public Card takeCardFromHand(int index) {
+        return hand.remove(index);
+    }
+
     public void takeCardFromTable(BlueCard card) {
         table.remove(card);
+    }
+
+    public Card takeCardFromTable(int index) {
+        return table.remove(index);
     }
 
     public <T extends Card> Card getCardOnHand(Class<T> card) {
@@ -64,5 +72,13 @@ public class Player {
             }
         }
         return null;
+    }
+
+    public int getHandCardsNum() {
+        return hand.size();
+    }
+
+    public int getTableCardsNum() {
+        return table.size();
     }
 }
