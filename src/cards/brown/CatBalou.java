@@ -32,6 +32,7 @@ public class CatBalou extends BrownCard {
 
     @Override
     public void play(Player owner) {
+        System.out.println("You have chosen Cat Balou.");
         Player chosenPlayer = getPlayer(owner, "Who do you play this card on?");
         while (chosenPlayer.getHandCardsNum() == 0 && chosenPlayer.getTableCardsNum() == 0) {
             chosenPlayer = getPlayer(owner, "Choose different player. This one has no cards!");

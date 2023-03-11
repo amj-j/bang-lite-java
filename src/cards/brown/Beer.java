@@ -10,7 +10,8 @@ public class Beer extends BrownCard {
 
     @Override
     public void play(Player owner) {
+        
         owner.addLife();
-        System.out.println("You added yourself one life!");
+        System.out.println("You have chosen Beer added yourself one life!");
     }
 }

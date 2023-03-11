@@ -11,6 +11,7 @@ public class Bang extends BrownCard {
 
     @Override
     public void play(Player owner) {
+        System.out.println("You have chosen Bang");
         Player chosenPlayer = getPlayer(owner, "Who do you shoot on?");
         Card missedCard = chosenPlayer.getCardOnHand(Missed.class);
         if (missedCard == null) {

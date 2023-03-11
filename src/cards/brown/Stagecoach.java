@@ -14,6 +14,6 @@ public class Stagecoach extends BrownCard {
         for (int i = 0; i < CARDS_NUM; i++) {
             super.board.dealCard(owner);
         }
-        System.out.println("You drew " + CARDS_NUM + " cards.");
+        System.out.println("You have chosen Stagecoach and draw " + CARDS_NUM + " cards.");
     }
 }
