@@ -2,6 +2,8 @@ package cards.blue;
 
 import java.util.ArrayList;
 
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 import main.*;
 
 public class Prison extends BlueCard {
@@ -23,7 +25,11 @@ public class Prison extends BlueCard {
 
     @Override
     public void play(Player owner) {
-        
+        Player chosenPlayer = super.getPlayer(owner, "Who do you send to prison?");
+        while (chosenPlayer.getCardOnTable(Prison.class) != null) {
+            chosenPlayer = super.getPlayer(owner, "This player is already in prison. Choose another one!");
+        }
+        chosenPlayer.addCardToTable(this);
     }
 
     @Override

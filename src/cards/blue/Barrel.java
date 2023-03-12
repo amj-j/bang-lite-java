@@ -20,7 +20,7 @@ public class Barrel extends BlueCard {
 
     @Override
     public void play(Player owner) {
-
+        owner.addCardToTable(this);
     }
 
     @Override
