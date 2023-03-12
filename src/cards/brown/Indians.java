@@ -34,4 +34,9 @@ public class Indians extends BrownCard {
             }
         }
     }
+
+    @Override
+    public void printCard() {
+        System.out.print("Indians");
+    }
 }

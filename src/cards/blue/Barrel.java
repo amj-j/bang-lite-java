@@ -1,6 +1,7 @@
 package cards.blue;
 
 import main.*;
+import utils.Constants;
 
 public class Barrel extends BlueCard {
     
@@ -23,8 +24,17 @@ public class Barrel extends BlueCard {
         owner.addCardToTable(this);
     }
 
+    public boolean tryHide() {
+        if (Math.random() < Constants.BARREL_HIDE_CHANCE) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     @Override
-    public void takeEffect(Player owner) {
-        
+    public void printCard() {
+        System.out.print("Barrel");
     }
 }

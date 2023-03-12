@@ -8,7 +8,7 @@ import main.*;
 import utils.KeyboardInput;
 
 public class CatBalou extends BrownCard {
-    Random rand = new Random();
+    private static Random rand = new Random();
     
     public CatBalou(Board board) {
         super(board);
@@ -43,10 +43,10 @@ public class CatBalou extends BrownCard {
         Card card;
 
         if (handNum == 0) {
-            card = chosenPlayer.takeCardFromHand(tableNum);
+            card = chosenPlayer.takeCardFromTable(rand.nextInt(tableNum));
         }
         else if (tableNum == 0) {
-            card = chosenPlayer.takeCardFromHand(handNum);
+            card = chosenPlayer.takeCardFromHand(rand.nextInt(handNum));
         }
         else {
             char input = KeyboardInput.readChar("Where do you want to take the card from? (h - hand/t - table)");
@@ -54,12 +54,17 @@ public class CatBalou extends BrownCard {
                 input = KeyboardInput.readChar("Type h for hand or t for table.");
             }
             if (input == 'h') {
-                card = chosenPlayer.takeCardFromHand(handNum);
+                card = chosenPlayer.takeCardFromHand(rand.nextInt(handNum));
             }
             else {
-                card = chosenPlayer.takeCardFromHand(tableNum);
+                card = chosenPlayer.takeCardFromTable(rand.nextInt(tableNum));
             }
         }
         super.board.getDeck().addToBottom(card);
+    }
+
+    @Override
+    public void printCard() {
+        System.out.print("Cat balou");
     }
 }

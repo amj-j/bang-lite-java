@@ -23,4 +23,6 @@ public abstract class Card {
         int index = KeyboardInput.readIntInRange(1, opponents.size()+1, textToDisplay, "Enter a valid number!");        
         return opponents.get(index);
     }
+
+    public void printCard() {}
 }

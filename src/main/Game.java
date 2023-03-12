@@ -1,5 +1,47 @@
 package main;
 
+import java.util.ArrayList;
+
+import utils.Constants;
+import utils.KeyboardInput;
+
 public class Game {
+    Board board;
+
+    public Game() {
+        int playersNum = KeyboardInput.readIntInRange(
+            Constants.MIN_PLAYERS, 
+            Constants.MAX_PLAYERS+1,
+            "How many players will there be?", 
+            "Enter valid number of players"
+        );
+        board = new Board(playersNum);
+        mainCycle();
+    }
+
+    private void mainCycle() {
+        ArrayList<Player> players = board.getPlayers();
+        int i = 0;
+        while (players.size() > 1) {
+            players.get(i).playTurn();
+            
+        }
+        board.getLostPlayers().add(board.getPlayers().get(0));
+        printLostPlayers();
+    }
+
+    public void printStatus(Player currPlayer) {
+        System.out.println("\n---------------------------------------------------------\n");
+        board.printStatus();
+        System.out.println("Your cards:");
+        currPlayer.printHand();
+    }
     
+    private void printLostPlayers() {
+        int place = 1;
+        for (int i = board.getLostPlayers().size() -1; i >= 0; i--) {
+            System.out.println(place + ". " + board.getLostPlayers().get(i).getName());
+            place++;
+        }
+    }
 }

@@ -12,4 +12,9 @@ public class Missed extends BrownCard {
     public void play(Player owner) {
         System.out.println(owner.getName() + "plays missed!");
     }
+
+    @Override
+    public void printCard() {
+        System.out.print("Missed");
+    }
 }

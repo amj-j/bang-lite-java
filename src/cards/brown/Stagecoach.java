@@ -16,4 +16,9 @@ public class Stagecoach extends BrownCard {
         }
         System.out.println("You have chosen Stagecoach and draw " + CARDS_NUM + " cards.");
     }
+
+    @Override
+    public void printCard() {
+        System.out.print("Stagecoach");
+    }
 }

@@ -83,4 +83,13 @@ public class Board {
         }
         return opponents;
     }
+
+    public void printStatus() {
+        for (Player player : players) {
+            System.out.println(player.getName() + ":");
+            System.out.println(player.getLives() + " lives");
+            player.printTable();
+            System.out.println();
+        }        
+    }
 }

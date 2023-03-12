@@ -1,6 +1,7 @@
 package cards.brown;
 
 import cards.Card;
+import cards.blue.Barrel;
 import main.*;
 
 public class Bang extends BrownCard {
@@ -13,6 +14,18 @@ public class Bang extends BrownCard {
     public void play(Player owner) {
         System.out.println("You have chosen Bang");
         Player chosenPlayer = getPlayer(owner, "Who do you shoot on?");
+        Barrel barrel = (Barrel) chosenPlayer.getCardOnTable(Barrel.class);
+        if (barrel != null) {
+            if (barrel.tryHide()) {
+                System.out.println(chosenPlayer.getName() + " managed to hide in a barrel!");
+                chosenPlayer.takeCardFromTable(barrel);
+                return;
+            }
+            else {
+                System.out.println(chosenPlayer.getName() + "unsuccessfully tried to hide in a barell!");
+                chosenPlayer.takeCardFromTable(barrel);
+            }
+        }
         Card missedCard = chosenPlayer.getCardOnHand(Missed.class);
         if (missedCard == null) {
             chosenPlayer.takeLife();
@@ -23,5 +36,10 @@ public class Bang extends BrownCard {
             chosenPlayer.takeCardFromHand(missedCard);
             super.board.getDeck().addToBottom(missedCard);
         }
+    }
+
+    @Override
+    public void printCard() {
+        System.out.print("Bang");
     }
 }

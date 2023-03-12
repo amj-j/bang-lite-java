@@ -2,9 +2,8 @@ package cards.blue;
 
 import java.util.ArrayList;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 import main.*;
+import utils.Constants;
 
 public class Prison extends BlueCard {
     
@@ -32,8 +31,17 @@ public class Prison extends BlueCard {
         chosenPlayer.addCardToTable(this);
     }
 
+    public boolean escaped() {
+        if (Math.random() < Constants.PRISONBREAK_CHANCE) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     @Override
-    public void takeEffect(Player owner) {
-        
+    public void printCard() {
+        System.out.print("Prison");
     }
 }
