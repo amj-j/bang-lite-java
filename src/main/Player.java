@@ -103,6 +103,19 @@ public class Player {
     public void playTurn() throws CurrPlayerLostException {
         System.out.println("\n---------------------------------------------------------------------\n");
         System.out.println(this.name + "'s turn:");
+        if (!checkTableCards()) {
+            return;
+        }
+        drawCards();
+        if (!playCards()) {
+            KeyboardInput.readString("Press enter to end your turn");
+            return;
+        }     
+        throwCardsAway();
+        KeyboardInput.readString("Press enter to end your turn");
+    }
+
+    private boolean checkTableCards() throws CurrPlayerLostException {
         BlueCard blueCard = getCardOnTable(Dynamite.class);
         if (blueCard != null) {
             blueCard.takeEffect(this);
@@ -112,16 +125,9 @@ public class Player {
         }
         blueCard = getCardOnTable(Prison.class);
         if (blueCard != null) {
-            boolean cont = blueCard.takeEffect(this);
-            if (!cont) {
-                return;
-            } 
+            return blueCard.takeEffect(this);
         }
-        
-        drawCards();
-        playCards();       
-        throwCardsAway();
-        KeyboardInput.readString("Press enter to end your turn");
+        return true;
     }
 
     private void drawCards() {
@@ -131,7 +137,7 @@ public class Player {
         }
     }
 
-    private void playCards() throws CurrPlayerLostException     {
+    private boolean playCards() throws CurrPlayerLostException {
         while (hand.size() > 0) {
             board.printStatus();
             printHand();
@@ -140,11 +146,15 @@ public class Player {
                 hand.get(cardIndex).play(this);
                 board.getDeck().addToBottom(takeCardFromHand(cardIndex));
                 board.processLostPlayers(this);
+                if (board.getPlayers().size() <= 1) {
+                    return false;
+                }
             } 
             else {
                 break;
             }
         }
+        return true;
     }
 
     private void throwCardsAway() {

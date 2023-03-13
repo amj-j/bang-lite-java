@@ -36,7 +36,10 @@ public class Game {
                 i = players.indexOf(e.getNextPlayer());
             }
         }
-        board.getLostPlayers().add(board.getPlayers().get(0));
+        if (players.size() == 1) {
+            board.getLostPlayers().add(players.get(0));
+        }
+        System.out.println(board.getLostPlayers().get(board.getLostPlayers().size() - 1).getName() + " won!");
         printLostPlayers();
     }
     
