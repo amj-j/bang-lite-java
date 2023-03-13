@@ -16,7 +16,7 @@ public class Game {
             "How many players will there be?", 
             "Enter valid number of players"
         );
-        board = new Board(playersNum);
+        this.board = new Board(playersNum);
         mainCycle();
     }
 
@@ -28,8 +28,9 @@ public class Game {
                 Player currPlayer = players.get(i);
                 currPlayer.playTurn();
                 i = players.indexOf(currPlayer);
+                ++i;
                 if (i >= players.size()) {
-                    ++i;
+                    i = 0;
                 }
             } catch (CurrPlayerLostException e) {
                 i = players.indexOf(e.getNextPlayer());

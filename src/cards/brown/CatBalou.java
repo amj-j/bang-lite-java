@@ -43,9 +43,11 @@ public class CatBalou extends BrownCard {
         Card card;
 
         if (handNum == 0) {
+            System.out.println(" loses card from his hand!");
             card = chosenPlayer.takeCardFromTable(rand.nextInt(tableNum));
         }
         else if (tableNum == 0) {
+            System.out.println(" loses card from the table!");
             card = chosenPlayer.takeCardFromHand(rand.nextInt(handNum));
         }
         else {

@@ -171,7 +171,7 @@ public class KeyboardInput {
     }
  
     private static void printPrompt(String prompt) {
-        System.out.print(prompt + ": ");
+        System.out.print(prompt);
     }
  
     private static char trimChar(char c) {

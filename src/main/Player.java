@@ -18,6 +18,7 @@ public class Player {
 
     public Player(String name, Board board) {
         this.name = name;
+        this.board = board;
     }
 
     public String getName() {
@@ -101,6 +102,7 @@ public class Player {
 
     public void playTurn() throws CurrPlayerLostException {
         System.out.println("\n---------------------------------------------------------------------\n");
+        System.out.println(this.name + "'s turn:");
         BlueCard blueCard = getCardOnTable(Dynamite.class);
         if (blueCard != null) {
             blueCard.takeEffect(this);
@@ -119,11 +121,11 @@ public class Player {
         drawCards();
         playCards();       
         throwCardsAway();
-        KeyboardInput.readString("Press enter to end your turn.");
+        KeyboardInput.readString("Press enter to end your turn");
     }
 
     private void drawCards() {
-        KeyboardInput.readString("Press enter to draw " + Constants.DRAW_CARDS_ON_TURN + " cards.");
+        KeyboardInput.readString("Press enter to draw " + Constants.DRAW_CARDS_ON_TURN + " cards");
         for (int i = 0; i < Constants.DRAW_CARDS_ON_TURN; i++) {
             board.dealCard(this);
         }
@@ -134,7 +136,7 @@ public class Player {
             board.printStatus();
             printHand();
             if (KeyboardInput.readYesNo("Do you wish to play a card?")) {
-                int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card:", "Enter valid card number!") - 1;
+                int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card", "Enter valid card number!") - 1;
                 hand.get(cardIndex).play(this);
                 board.getDeck().addToBottom(takeCardFromHand(cardIndex));
                 board.processLostPlayers(this);
@@ -168,8 +170,8 @@ public class Player {
     public void printTable() {
         for (int i = 0; i < table.size(); i++) {
             table.get(i).printCard();
-            if (i+1 == table.size()) {
-                System.out.println(", ");
+            if (i+1 < table.size()) {
+                System.out.print(", ");
             }
         }
         if (table.size() > 0) {

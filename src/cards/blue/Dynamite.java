@@ -58,7 +58,7 @@ public class Dynamite extends BlueCard {
             owner.takeCardFromTable(this);
         }
         else {
-            System.out.println("The dynamite did not do of!");
+            System.out.println("The dynamite did not go off!");
             this.move(owner);
         }
         return true;
