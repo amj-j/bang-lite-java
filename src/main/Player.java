@@ -99,40 +99,62 @@ public class Player {
     }
 
     public void playTurn() {
+        System.out.println("\n---------------------------------------------------------------------\n");
         BlueCard blueCard = getCardOnTable(Dynamite.class);
         if (blueCard != null) {
-            Dynamite dynamite = (Dynamite) blueCard;
-            if (dynamite.hasBlown()) {
-                this.lives -= Constants.DYNAMITE_DAMAGE;
-                board.getDeck().addToBottom(dynamite);
-                table.remove(dynamite);
-                if (hasLost()) {
-                    removeCards();
-                    return;
-                }
-            }
-            else {
-                dynamite.move(this);
+            blueCard.takeEffect(this);
+            if (hasLost()) {
+                board.playerLost(this);
+                return;
             }
         }
         blueCard = getCardOnTable(Prison.class);
         if (blueCard != null) {
-            System.out.println("You are in prison!");
-            KeyboardInput.readString("Press enter to try to escape.");
-            Prison prison = (Prison) blueCard;
-            board.getDeck().addToBottom(prison);
-            table.remove(prison);
-            if (!prison.escaped()) {
-                System.out.println("You didn't manage to escape from the prison!");
+            boolean cont = blueCard.takeEffect(this);
+            if (!cont) {
                 return;
-            }
+            } 
+        }
+        
+        KeyboardInput.readString("Press enter to draw " + Constants.DRAW_CARDS_ON_TURN + " cards.");
+        for (int i = 0; i < Constants.DRAW_CARDS_ON_TURN; i++) {
+            board.dealCard(this);
+        }
+
+        while (hand.size() > 0) {
+            board.printStatus();
+            printHand();
+            if (KeyboardInput.readYesNo("Do you wish to play a card?")) {
+                int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card:", "Enter valid card number!") - 1;
+                hand.get(cardIndex).play(this);
+                for (int i = 0; i < board.getPlayers().size(); i++) {
+                    Player player = board.getPlayers().get(i);
+                    if (player.hasLost()) {
+                        System.out.println(player.getName() + " has lost!");
+                        board.playerLost(player);
+                        --i;
+                    }
+                }
+            } 
             else {
-                System.out.println("You managed to escape from the prison!");
+                break;
             }
         }
+        
+        int throwAway = hand.size() - lives;
+        while (throwAway > 0) {
+            System.out.println("You have to throw away " + throwAway + " cards!");
+            printHand();
+            int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card:", "Enter valid card number!") - 1;
+            board.getDeck().addToBottom(takeCardFromHand(cardIndex));
+            throwAway--;
+        }
+
+        KeyboardInput.readString("Press enter to end your turn.");
     }
 
     public void printHand() {
+        System.out.println("Your cards:");
         for (int i = 0; i < hand.size(); i++) {
             System.out.print((i+1) + ". ");
             hand.get(i).printCard();

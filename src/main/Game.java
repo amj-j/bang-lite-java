@@ -24,17 +24,10 @@ public class Game {
         int i = 0;
         while (players.size() > 1) {
             players.get(i).playTurn();
-            
+            //TODO
         }
         board.getLostPlayers().add(board.getPlayers().get(0));
         printLostPlayers();
-    }
-
-    public void printStatus(Player currPlayer) {
-        System.out.println("\n---------------------------------------------------------\n");
-        board.printStatus();
-        System.out.println("Your cards:");
-        currPlayer.printHand();
     }
     
     private void printLostPlayers() {

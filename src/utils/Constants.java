@@ -5,6 +5,7 @@ public class Constants {
     public static final int MIN_PLAYERS = 2;
     public static final int START_LIVES = 4;
     public static final int START_CARDS = 4;
+    public static final int DRAW_CARDS_ON_TURN = 2;
 
     public static final int BANG = 30;
     public static final int MISSED = 15;

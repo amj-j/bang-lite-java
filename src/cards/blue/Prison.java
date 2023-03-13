@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import main.*;
 import utils.Constants;
+import utils.KeyboardInput;
 
 public class Prison extends BlueCard {
     
@@ -37,6 +38,22 @@ public class Prison extends BlueCard {
         }
         else {
             return false;
+        }
+    }
+
+    @Override
+    public boolean takeEffect(Player owner) {
+        System.out.println("You are in prison!");
+        KeyboardInput.readString("Press enter to try to escape.");
+        owner.takeCardFromTable(this);
+        board.getDeck().addToBottom(this);
+        if (!this.escaped()) {
+            System.out.println("You didn't manage to escape from the prison!");
+            return false;
+        }
+        else {
+            System.out.println("You managed to escape from the prison!");
+            return true;
         }
     }
 

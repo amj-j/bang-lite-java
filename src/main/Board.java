@@ -67,6 +67,12 @@ public class Board {
         player.addCardToHand(card);
     }
 
+    public void playerLost(Player player) {
+        player.removeCards();
+        players.remove(player);
+        lostPlayers.add(player);
+    }
+
     public HashMap<Integer, Player> printOpponents(Player currPlayer) {
         int index = players.indexOf(currPlayer);
         HashMap<Integer, Player> opponents = new HashMap<>();
