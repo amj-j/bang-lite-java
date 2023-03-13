@@ -143,6 +143,10 @@ public class Player {
             printHand();
             if (KeyboardInput.readYesNo("Do you wish to play a card?")) {
                 int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card", "Enter valid card number!") - 1;
+                if (!hand.get(cardIndex).canPlay(this)) {
+                    System.out.println("Choose a different card!");
+                    continue;
+                }
                 hand.get(cardIndex).play(this);
                 board.getDeck().addToBottom(takeCardFromHand(cardIndex));
                 board.processLostPlayers(this);

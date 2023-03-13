@@ -16,6 +16,7 @@ public class Dynamite extends BlueCard {
             return true;
         }
         else {
+            System.out.println("There already is a dynamite in front of you!");
             return false;
         }
     }

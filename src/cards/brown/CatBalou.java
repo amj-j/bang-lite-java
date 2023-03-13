@@ -27,6 +27,7 @@ public class CatBalou extends BrownCard {
                 return true;
             }
         }
+        System.out.println("All other playes are out of cards!");
         return false;
     }
 

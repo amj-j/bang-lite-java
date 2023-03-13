@@ -15,6 +15,7 @@ public class Barrel extends BlueCard {
             return true;
         }
         else {
+            System.out.println("There already is a barrel in front of you!");
             return false;
         }
     }

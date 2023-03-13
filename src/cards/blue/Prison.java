@@ -20,6 +20,7 @@ public class Prison extends BlueCard {
                 return true;
             }
         }
+        System.out.println("All players are already in prison!");
         return false;
     }
 
