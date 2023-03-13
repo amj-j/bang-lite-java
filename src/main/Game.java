@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
+import exceptions.CurrPlayerLostException;
 import utils.Constants;
 import utils.KeyboardInput;
 
@@ -23,8 +24,16 @@ public class Game {
         ArrayList<Player> players = board.getPlayers();
         int i = 0;
         while (players.size() > 1) {
-            players.get(i).playTurn();
-            //TODO
+            try {
+                Player currPlayer = players.get(i);
+                currPlayer.playTurn();
+                i = players.indexOf(currPlayer);
+                if (i >= players.size()) {
+                    ++i;
+                }
+            } catch (CurrPlayerLostException e) {
+                i = players.indexOf(e.getNextPlayer());
+            }
         }
         board.getLostPlayers().add(board.getPlayers().get(0));
         printLostPlayers();

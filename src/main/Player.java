@@ -5,6 +5,7 @@ import cards.Card;
 import cards.blue.BlueCard;
 import cards.blue.Dynamite;
 import cards.blue.Prison;
+import exceptions.CurrPlayerLostException;
 import utils.Constants;
 import utils.KeyboardInput;
 
@@ -98,14 +99,13 @@ public class Player {
         }
     }
 
-    public void playTurn() {
+    public void playTurn() throws CurrPlayerLostException {
         System.out.println("\n---------------------------------------------------------------------\n");
         BlueCard blueCard = getCardOnTable(Dynamite.class);
         if (blueCard != null) {
             blueCard.takeEffect(this);
             if (hasLost()) {
-                board.playerLost(this);
-                return;
+                throw new CurrPlayerLostException(board, this);
             }
         }
         blueCard = getCardOnTable(Prison.class);
@@ -116,31 +116,36 @@ public class Player {
             } 
         }
         
+        drawCards();
+        playCards();       
+        throwCardsAway();
+        KeyboardInput.readString("Press enter to end your turn.");
+    }
+
+    private void drawCards() {
         KeyboardInput.readString("Press enter to draw " + Constants.DRAW_CARDS_ON_TURN + " cards.");
         for (int i = 0; i < Constants.DRAW_CARDS_ON_TURN; i++) {
             board.dealCard(this);
         }
+    }
 
+    private void playCards() throws CurrPlayerLostException     {
         while (hand.size() > 0) {
             board.printStatus();
             printHand();
             if (KeyboardInput.readYesNo("Do you wish to play a card?")) {
                 int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card:", "Enter valid card number!") - 1;
                 hand.get(cardIndex).play(this);
-                for (int i = 0; i < board.getPlayers().size(); i++) {
-                    Player player = board.getPlayers().get(i);
-                    if (player.hasLost()) {
-                        System.out.println(player.getName() + " has lost!");
-                        board.playerLost(player);
-                        --i;
-                    }
-                }
+                board.getDeck().addToBottom(takeCardFromHand(cardIndex));
+                board.processLostPlayers(this);
             } 
             else {
                 break;
             }
         }
-        
+    }
+
+    private void throwCardsAway() {
         int throwAway = hand.size() - lives;
         while (throwAway > 0) {
             System.out.println("You have to throw away " + throwAway + " cards!");
@@ -149,8 +154,6 @@ public class Player {
             board.getDeck().addToBottom(takeCardFromHand(cardIndex));
             throwAway--;
         }
-
-        KeyboardInput.readString("Press enter to end your turn.");
     }
 
     public void printHand() {

@@ -8,6 +8,7 @@ import utils.Constants;
 import cards.Card;
 import cards.blue.*;
 import cards.brown.*;
+import exceptions.CurrPlayerLostException;
 
 public class Board {
     private Deck deck = new Deck();
@@ -67,10 +68,29 @@ public class Board {
         player.addCardToHand(card);
     }
 
-    public void playerLost(Player player) {
-        player.removeCards();
-        players.remove(player);
-        lostPlayers.add(player);
+    public void processLostPlayers(Player currPlayer) throws CurrPlayerLostException {
+        for (int i = 0; i < players.size(); i++) {
+            Player player = players.get(i);
+            if (player.hasLost()) {
+                if (player == currPlayer) {
+                    continue;
+                }
+                else {
+                    System.out.println(player.getName() + " has lost!");
+                    playerLost(player);
+                    --i;
+                }
+            }
+        }
+        if (currPlayer.hasLost()) {
+            throw new CurrPlayerLostException(this, currPlayer);
+        }
+    }
+
+    public void playerLost(Player lostPlayer) {
+        lostPlayer.removeCards();
+        players.remove(lostPlayer);
+        lostPlayers.add(lostPlayer);
     }
 
     public HashMap<Integer, Player> printOpponents(Player currPlayer) {
