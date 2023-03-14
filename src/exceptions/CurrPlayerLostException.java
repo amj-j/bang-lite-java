@@ -5,11 +5,9 @@ import main.Player;
 import utils.KeyboardInput;
 
 public class CurrPlayerLostException extends Exception {
-    Board board;
-    Player nextPlayer;
+    private Player nextPlayer;
 
     public CurrPlayerLostException(Board board, Player lostPlayer) {
-        this.board = board;
         int index = board.getPlayers().indexOf(lostPlayer);
         board.playerLost(lostPlayer);
         if (index >= board.getPlayers().size()) {

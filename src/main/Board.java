@@ -24,7 +24,7 @@ public class Board {
     private void initPlayers(int playersNum) {
         String name;
         for (int i = 0; i < playersNum; i++) {
-            name = KeyboardInput.readString("Enter the name of player " + (i+1));
+            name = KeyboardInput.readString("Enter the name of player " + (i+1) + ": ");
             players.add(new Player(name, this));
         }
     }

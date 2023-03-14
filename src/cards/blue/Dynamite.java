@@ -49,7 +49,7 @@ public class Dynamite extends BlueCard {
     @Override
     public boolean takeEffect(Player owner) {
         System.out.println("You are endangered by a dynamite!");
-        KeyboardInput.readString("Press enter to see wheter it goes off.");
+        KeyboardInput.readString("Press enter to see whether it goes off.");
         if (this.hasBlown()) {
             System.out.println("BOOOM!!! You lose " + Constants.DYNAMITE_DAMAGE + " lives!");
             for (int i = 0; i < Constants.DYNAMITE_DAMAGE; i++) {

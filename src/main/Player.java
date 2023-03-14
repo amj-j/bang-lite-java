@@ -108,11 +108,11 @@ public class Player {
         }
         drawCards();
         if (!playCards()) {
-            KeyboardInput.readString("Press enter to end your turn");
+            KeyboardInput.readString("Press enter to end your turn. ");
             return;
         }     
         throwCardsAway();
-        KeyboardInput.readString("Press enter to end your turn");
+        KeyboardInput.readString("Press enter to end your turn. ");
     }
 
     private boolean checkTableCards() throws CurrPlayerLostException {
@@ -131,7 +131,7 @@ public class Player {
     }
 
     private void drawCards() {
-        KeyboardInput.readString("Press enter to draw " + Constants.DRAW_CARDS_ON_TURN + " cards");
+        KeyboardInput.readString("Press enter to draw " + Constants.DRAW_CARDS_ON_TURN + " cards ");
         for (int i = 0; i < Constants.DRAW_CARDS_ON_TURN; i++) {
             board.dealCard(this);
         }
@@ -141,10 +141,10 @@ public class Player {
         while (hand.size() > 0) {
             board.printStatus();
             printHand();
-            if (KeyboardInput.readYesNo("Do you wish to play a card?")) {
-                int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card", "Enter valid card number!") - 1;
+            if (KeyboardInput.readYesNo("Do you wish to play a card? ")) {
+                int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card: ", "Enter valid card number! ") - 1;
                 if (!hand.get(cardIndex).canPlay(this)) {
-                    System.out.println("Choose a different card!");
+                    System.out.println("Choose a different card! ");
                     continue;
                 }
                 hand.get(cardIndex).play(this);
@@ -164,7 +164,7 @@ public class Player {
     private void throwCardsAway() {
         int throwAway = hand.size() - lives;
         while (throwAway > 0) {
-            System.out.println("You have to throw away " + throwAway + " cards!");
+            System.out.println("You have to throw away " + throwAway + " cards! ");
             printHand();
             int cardIndex = KeyboardInput.readIntInRange(1, hand.size() + 1, "Choose a card:", "Enter valid card number!") - 1;
             board.getDeck().addToBottom(takeCardFromHand(cardIndex));

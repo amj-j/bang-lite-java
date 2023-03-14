@@ -13,8 +13,8 @@ public class Game {
         int playersNum = KeyboardInput.readIntInRange(
             Constants.MIN_PLAYERS, 
             Constants.MAX_PLAYERS+1,
-            "How many players will there be?", 
-            "Enter valid number of players"
+            "How many players will there be? ", 
+            "Enter valid number of players! "
         );
         this.board = new Board(playersNum);
         mainCycle();

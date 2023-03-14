@@ -198,9 +198,9 @@ public class KeyboardInput {
     }
 
     public static boolean readYesNo(String text) {
-        String answer = readString(text + " (y or n)");
+        String answer = readString(text + " (y or n) ");
         while (!(answer.equals("y") || answer.equals("n"))) {
-            answer = readString("Enter \"y\" for Yes or \"n\" for No");
+            answer = readString("Enter \"y\" for Yes or \"n\" for No: ");
         }
         if (answer.equals("y")) {
             return true;

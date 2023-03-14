@@ -13,7 +13,7 @@ public class Bang extends BrownCard {
     @Override
     public void play(Player owner) {
         System.out.println("You have chosen Bang");
-        Player chosenPlayer = getPlayer(owner, "Who do you shoot on?");
+        Player chosenPlayer = getPlayer(owner, "Who do you shoot on? ");
         Barrel barrel = (Barrel) chosenPlayer.getCardOnTable(Barrel.class);
         if (barrel != null) {
             if (barrel.tryHide()) {

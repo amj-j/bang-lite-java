@@ -26,8 +26,7 @@ public class Indians extends BrownCard {
                 player.takeLife();
                 System.out.println(player.getName() + " loses a life!");
             }
-            else {
-                bangCard.play(player);
+            else {    
                 player.takeCardFromHand(bangCard);
                 System.out.println(player.getName() + " plays Bang!");
                 super.board.getDeck().addToBottom(bangCard);
