@@ -26,12 +26,7 @@ public class Barrel extends BlueCard {
     }
 
     public boolean tryHide() {
-        if (Math.random() < Constants.BARREL_HIDE_CHANCE) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return Math.random() < Constants.BARREL_HIDE_CHANCE;
     }
 
     @Override
