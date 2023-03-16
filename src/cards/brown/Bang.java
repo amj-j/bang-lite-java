@@ -18,12 +18,10 @@ public class Bang extends BrownCard {
         if (barrel != null) {
             if (barrel.tryHide()) {
                 System.out.println(chosenPlayer.getName() + " managed to hide in a barrel!");
-                chosenPlayer.takeCardFromTable(barrel);
                 return;
             }
             else {
-                System.out.println(chosenPlayer.getName() + "unsuccessfully tried to hide in a barell!");
-                chosenPlayer.takeCardFromTable(barrel);
+                System.out.println(chosenPlayer.getName() + "unsuccessfully tried to hide in a barel!");
             }
         }
         Card missedCard = chosenPlayer.getCardOnHand(Missed.class);
