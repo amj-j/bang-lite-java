@@ -148,7 +148,7 @@ public class Player {
                     continue;
                 }
                 hand.get(cardIndex).play(this);
-                board.getDeck().addToBottom(takeCardFromHand(cardIndex));
+                hand.get(cardIndex).discard(this);
                 board.processLostPlayers(this);
                 if (board.getPlayers().size() <= 1) {
                     return false;

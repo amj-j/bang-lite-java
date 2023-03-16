@@ -18,6 +18,10 @@ public abstract class Card {
 
     public void play(Player owner) {}
 
+    public void discard(Player owner) {
+        owner.takeCardFromHand(this);
+    }
+
     protected Player getPlayer(Player currPlayer, String textToDisplay) {
         HashMap<Integer, Player> opponents = board.printOpponents(currPlayer);
         int index = KeyboardInput.readIntInRange(1, opponents.size()+1, textToDisplay, "Enter a valid number!");        
