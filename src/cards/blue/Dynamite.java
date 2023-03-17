@@ -27,12 +27,7 @@ public class Dynamite extends BlueCard {
     }
 
     public boolean hasBlown() {
-        if (Math.random() < Constants.DYNAMITE_BLOW_CHANCE) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return Math.random() < Constants.DYNAMITE_BLOW_CHANCE;
     }
 
     public void move(Player previousOwner) {

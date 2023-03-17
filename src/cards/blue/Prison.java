@@ -34,12 +34,7 @@ public class Prison extends BlueCard {
     }
 
     public boolean escaped() {
-        if (Math.random() < Constants.PRISONBREAK_CHANCE) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return Math.random() < Constants.PRISONBREAK_CHANCE;
     }
 
     @Override
