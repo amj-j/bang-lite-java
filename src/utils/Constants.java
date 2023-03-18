@@ -17,9 +17,9 @@ public class Constants {
     public static final int PRISON = 3;
     public static final int DYNAMITE = 1;
 
-    public static final double BARREL_HIDE_CHANCE = 1/4;
-    public static final double DYNAMITE_BLOW_CHANCE = 1/8;
-    public static final double PRISONBREAK_CHANCE = 1/4;
+    public static final double BARREL_HIDE_CHANCE = 0.25;
+    public static final double DYNAMITE_BLOW_CHANCE = 0.125;
+    public static final double PRISONBREAK_CHANCE = 0.25;
 
     public static final int DYNAMITE_DAMAGE = 3;
 }
