@@ -106,12 +106,14 @@ public class KeyboardInput {
     }
  
     public static int readInt() {
-        try {
-            String s = readString();
-            return s.isEmpty() ? Integer.MIN_VALUE : Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            return Integer.MIN_VALUE;
+        while (true) {
+            try {
+                String s = readString();
+                return s.isEmpty() ? Integer.MIN_VALUE : Integer.parseInt(s);
+            } catch (NumberFormatException e) {
+                System.out.print("Enter an integer! ");
+                continue;
+            }
         }
     }
  
