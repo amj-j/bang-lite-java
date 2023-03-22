@@ -9,9 +9,7 @@ public class Deck {
     Random rand = new Random();
 
     public Card takeFromTop() {
-        Card rtrn = deck.get(0);
-        deck.remove(0);
-        return rtrn;
+        return deck.remove(0);
     }
 
     public void addToBottom(Card newLast) {
