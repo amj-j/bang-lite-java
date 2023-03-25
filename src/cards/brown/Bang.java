@@ -21,7 +21,7 @@ public class Bang extends BrownCard {
                 return;
             }
             else {
-                System.out.println(chosenPlayer.getName() + "unsuccessfully tried to hide in a barel!");
+                System.out.println(chosenPlayer.getName() + " unsuccessfully tried to hide in a barel!");
             }
         }
         Card missedCard = chosenPlayer.getCardOnHand(Missed.class);

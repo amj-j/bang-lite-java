@@ -6,7 +6,7 @@ import main.*;
 import utils.KeyboardInput;
 
 public abstract class Card {
-    protected Board board;
+    protected final Board board;
 
     public Card(Board board) {
         this.board = board;

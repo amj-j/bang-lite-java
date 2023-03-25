@@ -11,9 +11,9 @@ import cards.brown.*;
 import exceptions.CurrPlayerLostException;
 
 public class Board {
-    private Deck deck = new Deck();
-    private ArrayList<Player> players = new ArrayList<>();
-    private ArrayList<Player> lostPlayers = new ArrayList<>();
+    private final Deck deck = new Deck();
+    private final ArrayList<Player> players = new ArrayList<>();
+    private final ArrayList<Player> lostPlayers = new ArrayList<>();
 
     public Board(int playersNum) {
         initPlayers(playersNum);

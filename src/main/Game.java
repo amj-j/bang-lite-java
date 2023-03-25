@@ -7,7 +7,7 @@ import utils.Constants;
 import utils.KeyboardInput;
 
 public class Game {
-    Board board;
+    private final Board board;
 
     public Game() {
         int playersNum = KeyboardInput.readIntInRange(

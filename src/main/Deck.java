@@ -5,8 +5,8 @@ import java.util.Random;
 import cards.Card;
 
 public class Deck {
-    protected ArrayList<Card> deck = new ArrayList<Card>();
-    Random rand = new Random();
+    private final ArrayList<Card> deck = new ArrayList<Card>();
+    private final Random rand = new Random();
 
     public Card takeFromTop() {
         return deck.remove(0);

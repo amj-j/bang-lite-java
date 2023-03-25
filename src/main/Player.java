@@ -10,11 +10,11 @@ import utils.Constants;
 import utils.KeyboardInput;
 
 public class Player {
-    Board board;
-    String name;
-    int lives = Constants.START_LIVES;
-    ArrayList <Card> hand = new ArrayList<>();
-    ArrayList <BlueCard> table = new ArrayList<>();
+    private final Board board;
+    private String name;
+    private int lives = Constants.START_LIVES;
+    private final ArrayList <Card> hand = new ArrayList<>();
+    private final ArrayList <BlueCard> table = new ArrayList<>();
 
     public Player(String name, Board board) {
         this.name = name;
