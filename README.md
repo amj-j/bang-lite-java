@@ -3,7 +3,7 @@
 This is a simplified version of card game "BANG" in the form of a console Java aplication.
 
 ## My motivation
-This is the first assigment I was given in the "Object-Oriented Programming" course at my university. This was, however, not my first experience with object oriented programming, as before starting the course, I completed four assignments from the same course (from previous years) as a self-directed challenge. My goal was to deepen my understanding of Java and object-oriented programming principles, as well as to prepare myself for the actual course. These projects can be found on my GitHub: [Duck hunt](https://github.com/amj-j/duck-hunt-java), [Monopoly lite](https://github.com/amj-j/monopoly-lite-java), [Reversi](https://github.com/amj-j/reversi-java), and [Rook in maze](https://github.com/amj-j/rook-in-maze-java).
+This is the first assigment I was given in the "Object-Oriented Programming" course at my university. I coded this in March of 2023. This was, however, not my first experience with object oriented programming, as before starting the course, I completed four assignments from the same course (from previous years) as a self-directed challenge. My goal was to deepen my understanding of Java and object-oriented programming principles, as well as to prepare myself for the actual course. These projects can be found on my GitHub: [Duck hunt](https://github.com/amj-j/duck-hunt-java), [Monopoly lite](https://github.com/amj-j/monopoly-lite-java), [Reversi](https://github.com/amj-j/reversi-java), and [Rook in maze](https://github.com/amj-j/rook-in-maze-java).
 
 The **Gameplay** section in this file is the original assignment.
 
