@@ -1,16 +1,35 @@
 # BANG Lite
 
-This is a simplified version of card game "BANG" as a console game in Java.
+This is a simplified version of card game "BANG" in .
 
-## Introduction to the game
+## My motivation
+This is the first assigment I was given in the "Object-Oriented Programming" course at my university. This was, however, not my first experience with object oriented programming, as before starting the course, I completed four assignments from the same course (from previous years) as a self-directed challenge. My goal was to deepen my understanding of Java and object-oriented programming principles, as well as to prepare myself for the actual course. These projects can be found on my GitHub: [Duck hunt](https://github.com/amj-j/duck-hunt-java) [Monopoly lite](https://github.com/amj-j/monopoly-lite-java), [Reversi](https://github.com/amj-j/reversi-java), and [Rook in maze](https://github.com/amj-j/rook-in-maze-java).
+
+The **Gameplay** section in this file is the original assignment.
+
+### Goal
+This assignment focuses on practicing the basic principles of object-oriented programming.
+
+## Prerequisites
+You need to have Java 1.8 (also known as Java 8) or higher installed on you computer to run this app.
+
+## Installation
+1. Download the ```bang-lite.jar``` file.
+2. Open your terminal and navigate to folder in which the downloaded ```bang-lite.jar``` file is located.
+3. Type this command into the terminal to run the app: ```java -jar bang-lite.jar```.
+4. The app will run in your terminal.
+
+## Gameplay
+
+### Introduction to the game
 
 The players are in the wild west, and since this is a simplified version of the game, they all fight against each other. In this simplified version of the game, we have neither characters nor weapons and also we don't have many other cards from the original game.
 
-## Goal of the game
+### Goal of the game
 
 Be the last one alive.
 
-## Cards
+### Cards
 
 In our version of the game, there are two types of cards, **Blue** and **Brown** cards.
 
@@ -35,22 +54,22 @@ Brown cards have an immediate effect and are immediately discarded into the disc
 
 The effects of each card are described below.
 
-## Game preparation
+### Game preparation
 
 The game can be played by 2-4 players. Each player starts with 4 cards from the deck and starts with 4 lives. The upper number of lives is not limited.
 
-## The course of the game
+### The course of the game
 
 Players play sequentially in a row. Each player's turn is divided into 3 parts:
 * 1. Drawing cards - at the beginning of their turn, the given player draws 2 cards from the deck. If they have blue cards (Prison, Dynamite) in front of them, their effect is excecuted first.
 * 2. Playing cards - the player can play any number of cards during their turn, but he does not have to play any. During the move, however, the rule must be fulfilled that only one copy of each card can lie in front of the player (Example: If you already have a Barrel in front of you, you cannot place another one in front of you).
 * 3. Discarding excess cards - a player can only have as many cards on their hand as they have lives at the end of their turn.
 
-## Killing an opponent
+### Killing an opponent
 
 If any of the players die, they return all the cards from their hand and from the table in front of them and put them in the discard pile.
 
-## Explanation of individual cards
+### Explanation of individual cards
 
 #### Bang and Missed
 
@@ -94,5 +113,5 @@ You place this card in front of you when you play it. The effect of the Dynamite
 
 If the situation should arise that the player has both a Prison and Dynamite card in front of him at the beginning of the round, the effect of the Dynamite card is checked first.
 
-## Resources (for better understanding)
+### Resources (for better understanding)
 * [Rules of the original game](https://www.ultraboardgames.com/bang/game-rules.php)
