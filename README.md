@@ -113,5 +113,7 @@ You place this card in front of you when you play it. The effect of the Dynamite
 
 If the situation should arise that the player has both a Prison and Dynamite card in front of him at the beginning of the round, the effect of the Dynamite card is checked first.
 
-### Resources (for better understanding)
-* [Rules of the original game](https://www.ultraboardgames.com/bang/game-rules.php)
+[Rules of the original game](https://www.ultraboardgames.com/bang/game-rules.php)
+
+### Controls
+Since this is a console app, the last line in the console always gives instructions for the user about what to enter next. Every user input must be comitted by pressing ENTER. No mouse input is possible.
