@@ -11,13 +11,15 @@ The **Gameplay** section in this file is the original assignment.
 This assignment focuses on practicing the basic principles of object-oriented programming.
 
 ## Prerequisites
-You need to have Java 1.8 (also known as Java 8) or higher installed on you computer to run this app.
+You need to have JDK 8 or higher installed on you computer to compile and run this app.
 
 ## Installation
-1. Download the ```bang-lite.jar``` file.
-2. Open your terminal and navigate to folder in which the downloaded ```bang-lite.jar``` file is located.
-3. Type this command into the terminal to run the app: ```java -jar bang-lite.jar```.
-4. The app will run in your terminal.
+1. Open your terminal and navigate to folder in which you wish to clone this repository.
+2. Clone this repository using ```git clone https://github.com/amj-j/bang-lite-java.git```
+3. In your terminal, navigate inside the new directory created by cloning the repository.
+4. Execute this command to compile the source code: ```javac -d bin $(find src -name "*.java")``` (This command works on Linux, macOS, and Git Bash on Windows but not in Command Prompt or PowerShell. For Windows, use Git Bash terminal for compatibility, or list the source files manually.)
+5. Execute this command to run the app: ```java -cp bin Bang```
+6. The app will run in a new window.
 
 ## Gameplay
 
