@@ -19,7 +19,7 @@ You need to have JDK 8 or higher installed on you computer to compile and run th
 3. In your terminal, navigate inside the new directory created by cloning the repository.
 4. Execute this command to compile the source code: ```javac -d bin $(find src -name "*.java")``` (This command works on Linux, macOS, and Git Bash on Windows but not in Command Prompt or PowerShell. For Windows, use Git Bash terminal for compatibility, or list the source files manually.)
 5. Execute this command to run the app: ```java -cp bin Bang```
-6. The app will run in a new window.
+6. The app will run in your terminal.
 
 ## Gameplay
 
